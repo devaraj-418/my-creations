@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta na me="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms in html </title>
+</head>
+<style>
+    body {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: 100;
+        font-display: color #ddd;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    form>* {
+        padding: 1%;
+        width: 50%;
+        margin-left: 25%;
+    }
+    
+    form>label {
+        margin-bottom: 0%;
+        padding-bottom: 0%;
+        padding-left: 0%;
+    }
+    
+    header {
+        background-color: rgb(4, 107, 155);
+        padding: 10px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: white;
+    }
+    
+    nav {
+        display: inline-block;
+        margin-left: 30px;
+        margin-right: 300px;
+    }
+    
+    a {
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: aqua;
+        padding: 10px;
+    }
+    
+    button {
+        margin-top: 1%;
+        color: white;
+        border: 1px solid skyblue;
+        background-color: skyblue;
+        width: 52.5%;
+    }
+</style>
+
+<body>
+    <header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="">About</a>
+            <a href="">Settings</a>
+            <a href="">Profile</a>
+            <a href="Login">Login</a>
+        </nav>
+    </header>
+    <form>
+        <label for="name">Name</label>
+        <input type="text" placeholder="Name">
+        <label for="Email">Email</label>
+        <input type="Email" placeholder="Email">
+
+        <label for="Password">Create Password</label>
+        <input type="password" placeholder="Create password">
+        <label for="Password">Confirm Password</label>
+        <input type="password" placeholder="Confirm password">
+        <label for="Password">date</label>
+        <input type="Date">
+        <button><b>Register</b></button>
+    </form>
+
+</body>
+
+</html>
