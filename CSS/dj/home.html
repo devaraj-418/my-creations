@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        
+        nav {
+            background-color: rgb(4, 107, 155);
+            padding: 1%;
+        }
+        
+        nav>a {
+            color: white;
+            text-decoration: none;
+            font-weight: bolder;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+        
+        #main {
+            background-color: grey;
+            margin: 0% auto;
+            width: 70%;
+            padding: 2%;
+            margin-top: 2%;
+            text-align: center;
+        }
+        
+        #main>button {
+            margin-top: 50px;
+            border: 1px solid black;
+            border-radius: 20px;
+            padding: 0.5%;
+            padding-left: 3%;
+            padding-right: 3%;
+            background-color: grey;
+        }
+        
+        #box {
+            display: flex;
+            flex-direction: row;
+            width: 70%;
+            margin: 0% auto;
+        }
+        
+        #box>div {
+            width: 30%;
+            background-color: grey;
+            padding: 2%;
+            border-radius: 5px;
+        }
+        
+        #box>div:nth-child(1) {
+            margin-right: 5%;
+        }
+        
+        #box>div:nth-child(2) {
+            margin-right: 5%;
+        }
+        
+        #box>div>button {
+            margin-top: 20px;
+            border-radius: 10px;
+            background-color: whitesmoke;
+            border: 1px solid whitesmoke;
+            padding: 1%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="">About</a>
+        <a href="">Settings</a>
+        <a href="">Profile</a>
+        <a href="./forms.html">Logout</a>
+    </nav>
+    <div id="main">
+        <h2>MEDICAL HEALTH PLATFORM</h2>
+        <small>Now get the treatment and medicines staying in home </small>
+        <br/>
+        <button>Our Services</button>
+    </div>
+    <h1>Features</h1>
+    <div id="box">
+        <div>
+            <h5>Doctor</h5>
+            <small>Book an appointment with doctor for treatment </small><br/>
+            <button>BOOK</button>
+        </div>
+        <div>
+            <h5>Pathology</h5>
+            <small>Get prescribed through this option</small><br/>
+            <button>Schedule</button>
+        </div>
+        <div>
+            <h5>Pharmacy</h5>
+            <small>Get prescribed medicines through here</small><br/>
+            <button>Order</button>
+        </div>
+    </div>
+</body>
+
+</html>
