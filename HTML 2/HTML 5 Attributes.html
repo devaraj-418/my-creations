@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= <device-width>, initial-scale=1.0">
+    <style>
+        h1 {
+            text-align: center;
+            color: rgb(0, 255, 13);
+        }
+        
+        div {
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+            margin: auto;
+        }
+        
+        div>input {
+            margin-bottom: 10%;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <h1>Ticket reservation form</h1>
+        <div>
+            <label for="source">source</label>
+            <input type="text" placeholder="enter the source" required>
+            <label for="destination">destination</label>
+            <input type="text" placeholder="enter the destination" required>
+            <label for="DATE">DATE</label>
+            <input type="date" min="22-10-2020" max="20-1-2021" required>
+            <label for="Email">Enter your Email</label>
+            <input type="Email" placeholder="Email" required>
+
+            <button>submit</button>
+
+        </div>
+    </form>
+
+</body>
+
+</html>

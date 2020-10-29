@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div {
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+            margin: 0% auto;
+            border: 1px solid black;
+            padding: 1%;
+        }
+        
+        .div>* {
+            margin-top: 2%;
+        }
+        
+        .div_inner {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        hr {
+            color: black;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div">
+        <h5 style="text-align: center; margin-bottom: 0%;">Invite to Board <span style="float: right;">x
+
+        </span></h5>
+        <hr/>
+        <input type="text" placeholder="Enter address or name" />
+        <textarea style="height: 100px;"></textarea>
+        <button> Send Invitation</button>
+        <hr>
+        <div class="div_inner">
+            <h5 style="margin: 0%;">Invite with Link</h5>
+            <a href="" style="margin-left:40%">Create Link</a>
+        </div>
+        <small>Anyone with this link can join as board member</small>
+    </div>
+</body>
+
+</html>
