@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Booking</title>
+    <style>
+        #nav {
+            padding-left: 1%;
+            background: #93efdd;
+            background: -moz-linear-gradient(to right, #93efdd 0%, #eea849 100%);
+            background: -webkit-linear-gradient(to right, #93efdd 0%, #eea849 100%);
+            background: linear-gradient(to right, #93efdd 0%, #eea849 100%);
+            display: flex
+        }
+
+        #nav>div:nth-child(1) {
+            width: 90%;
+        }
+
+        #nav>div:nth-child(2) {
+            padding-top: 20px;
+            width: 10%;
+            text-align: center;
+        }
+
+        #form {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            margin: 0% auto;
+        }
+
+        #form>* {
+            margin-bottom: 3%;
+            padding: 2%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <div>
+            <h2>Name of th Hospital</h2>
+        </div>
+        <div>
+            <img onclick="logout()" src="https://www.flaticon.com/svg/static/icons/svg/660/660350.svg" width="30" />
+        </div>
+    </div>
+    <h1>Book Your Appointment Here</h1>
+    <div id="form">
+        <input type="text" id="name" placeholder="Enter the Patient name" />
+        <input type="date" id="date" />
+        <input type="text" id="time" placeholder="Select time" />
+        <div>Select the Doctor : <select id="doctor">
+                <option>Deva</option>
+                <option>Raj</option>
+                <option>Deva Raj</option>
+                <option>Devaraj</option>
+            </select>
+        </div>
+        <button onclick="book()">Book</button>
+    </div>
+    <script>
+        function book() {
+            let name = document.getElementById("name").value
+            let date = document.getElementById("date").value
+            let time = document.getElementById("time").value
+            let doctor = document.getElementById("doctor").value
+
+            let appointments = JSON.parse(localStorage.getItem("Appointments")) || [{
+                name: "Soumitha",
+                date: "11/11/2020",
+                time: "10:00 Am",
+                status: false
+            }, {
+                name: "Devaraj",
+                date: "11/11/2020",
+                time: "10:20 Am",
+                status: true
+            }, {
+                name: "Bhadri",
+                date: "11/11/2020",
+                time: "10:40 Am",
+                status: true
+            }, {
+                name: "Shakthi",
+                date: "11/11/2020",
+                time: "11:00 Am",
+                status: false
+            }, {
+                name: "Mounika",
+                date: "11/11/2020",
+                time: "11:20 Am",
+                status: false
+            }, {
+                name: "Likitha",
+                date: "11/11/2020",
+                time: "11:40 Am",
+                status: false
+            }, {
+                name: "Tejaswini",
+                date: "11/11/2020",
+                time: "12:00 Pm",
+                status: false
+            }]
+
+            appointments.push({ name, date, time, status: false })
+            localStorage.setItem("Appointments", JSON.stringify(appointments))
+
+            alert("Patient Added!")
+            document.getElementById("name").value = ""
+            document.getElementById("date").value = ""
+            document.getElementById("time").value = ""
+            document.getElementById("doctor").value = ""
+        }
+    </script>
+</body>
+
+</html>

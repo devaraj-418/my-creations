@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Login</title>
+    <style>
+        body {
+            /* background: #f46b45;
+            background: -webkit-linear-gradient(to right, #eea849, #f46b45);
+            background: linear-gradient(to right, #eea849, #f46b45); */
+            background: #93efdd;
+            background: -moz-linear-gradient(to right, #93efdd 0%, #eea849 100%);
+            background: -webkit-linear-gradient(to right, #93efdd 0%, #eea849 100%);
+            background: linear-gradient(to right, #93efdd 0%, #eea849 100%);
+        }
+
+        #bg {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #bg>div {
+            width: 50%;
+            padding-top: 2%;
+        }
+
+        #bg>div:nth-child(2) {
+            padding: 2%;
+        }
+
+        #form {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            margin: 0% auto;
+        }
+
+        #form>p {
+            color: white;
+            margin-top: 5%;
+        }
+
+        #form>input {
+            background-color: rgba(245, 245, 245, 0.397);
+            border-radius: 20px;
+            border: 1px solid rgba(245, 245, 245, 0.397);
+            padding: 2%;
+        }
+
+        #sign {
+            margin-top: 200px;
+            color: white;
+            text-align: center;
+        }
+
+        img {
+            border-bottom-right-radius: 50%;
+            border-top-right-radius: 50%;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-top: 100px;
+            margin-bottom: 150px;
+        }
+
+        button {
+            padding: 2%;
+            border-radius: 50px;
+            background-color: white;
+            border: 1px solid white;
+            margin-top: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bg">
+        <div>
+            <img src="./doc.jpeg" />
+        </div>
+        <div>
+            <h1>Name of the Hospital</h1>
+            <div id="form">
+                <p>ID</p>
+                <input type="text" id="id" placeholder="Account ID" required />
+                <p>Password</p>
+                <input type="password" id="password" placeholder="Password" required />
+                <span style="text-align: right; color: white;"><small>Forgot Password?</small></span>
+                <button onclick="login()">Login</button>
+            </div>
+            <div id="sign"><b>Don't have an account? sign up</b></div>
+        </div>
+    </div>
+    <script>
+        var arrayOfDoctors = [
+            {
+                name: "Deva",
+                id: 10112,
+                specification: "Dental"
+            },
+            {
+                name: "Raj",
+                id: 10114,
+                specification: "Dental"
+            },
+            {
+                name: "Deva Raj",
+                id: 10115,
+                specification: "Dental"
+            },
+            {
+                name: "Devaraj",
+                id: 10117,
+                specification: "Dental"
+            }
+        ]
+
+        function login() {
+
+            var id = document.getElementById("id").value
+            var password = document.getElementById("password").value
+
+            var Doctor = arrayOfDoctors.find(item => item.id == id)
+
+            if (Doctor != undefined) {
+                localStorage.setItem("Doctor", JSON.stringify(Doctor))
+                location.href = "Appointments.html"
+            }
+            else {
+                alert("Please Register! Your Id is Not present in the Database")
+            }
+        }
+    </script>
+</body>
+
+</html>

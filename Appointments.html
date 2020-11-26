@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointments</title>
+    <style>
+        #nav {
+            padding-left: 1%;
+            background: #93efdd;
+            background: -moz-linear-gradient(to right, #93efdd 0%, #eea849 100%);
+            background: -webkit-linear-gradient(to right, #93efdd 0%, #eea849 100%);
+            background: linear-gradient(to right, #93efdd 0%, #eea849 100%);
+            display: flex
+        }
+
+        #nav>div:nth-child(1) {
+            width: 90%;
+        }
+
+        #nav>div:nth-child(2) {
+            padding-top: 20px;
+            width: 10%;
+            text-align: center;
+        }
+
+        #doctorInfo {
+            display: flex;
+            margin: 2%;
+            padding: 1%;
+            border: 1px solid whitesmoke;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 10px rgba(207, 202, 202, 0.473);
+        }
+
+        #doctorInfo>div:nth-child(1) {
+            width: 90%;
+        }
+
+        #doctorInfo>div:nth-child(2) {
+            width: 10%;
+            text-align: right;
+        }
+
+        .display {
+            display: flex;
+            flex-direction: row;
+            margin: 2%;
+            padding: 1%;
+        }
+
+        .display>div>* {
+            margin-bottom: 3%;
+        }
+
+        .display>div>button {
+            background-color: green;
+            border: 1px solid green;
+            width: 70%;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            color: white;
+            border-radius: 20px;
+            font-weight: 900;
+        }
+
+        .display>div:nth-child(1) {
+            width: 20%;
+            padding-top: 5%;
+            /* border: 1px solid teal; */
+        }
+
+        .display>div:nth-child(1)>* {
+            width: 70%;
+            padding: 2%;
+        }
+
+        .display>div:nth-child(2) {
+            width: 80%;
+        }
+
+        #appointments>* {
+            float: left;
+            width: 350px;
+            margin-bottom: 5%;
+            margin-right: 5%;
+            padding: 1%;
+            height: 100%;
+            border: 1px solid grey;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        #more {
+            background-color: whitesmoke;
+            border: 1px solid black;
+            border-radius: 5px;
+            color: black;
+            font-weight: bolder;
+            padding: 1%;
+            padding-right: 3%;
+            padding-left: 3%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <div>
+            <h2>Name of th Hospital</h2>
+        </div>
+        <div>
+            <img onclick="logout()" src="https://www.flaticon.com/svg/static/icons/svg/660/660350.svg" width="30" />
+        </div>
+    </div>
+    <div id="doctorInfo">
+        <div>
+            <p>Name of the Doctor <b><span id="doctor"></span></b></p>
+            <p>Specification <b><span id="specification"></span></b></p>
+            <p>Appointment Fee <b><span>0000</span></b></p>
+        </div>
+        <div>
+            <img src="https://via.placeholder.com/120" style="border-radius: 60px;" />
+        </div>
+    </div>
+    <div class="display">
+        <div>
+            <input id="first" type="text" placeholder="First Name" />
+            <input id="last" type="text" placeholder="Last Name" />
+            <input id="mobile" type="text" placeholder="Mobile Number" /><br />
+            <button>Apply</button>
+        </div>
+        <div>
+            <h1 style="color:rgb(5, 97, 46);">Appointments (<b id="noOfAp"></b>)</h1>
+            <div id="appointments">
+
+            </div>
+            <div style="text-align: right; padding-right: 5%;">
+                <button id="more" onclick="more()">View More</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let doctor = JSON.parse(localStorage.getItem("Doctor"))
+        let appointments = JSON.parse(localStorage.getItem("Appointments")) || []
+        
+        let count = 3
+
+        window.addEventListener("load", () => {
+            document.getElementById("doctor").innerHTML = `${doctor.name} (${doctor.id})`
+            document.getElementById("specification").innerHTML = doctor.specification
+            document.getElementById("noOfAp").innerHTML = appointments.length
+
+            createDiv()
+        })
+
+        function createDiv() {
+
+            if (appointments.length < count || appointments.length < count) {
+                count = appointments.length
+            }
+
+            let appointmentsDiv = document.getElementById("appointments")
+            appointmentsDiv.innerHTML = ""
+
+            for (let i = 0; i < count; i++) {
+                let div = document.createElement("div")
+                let img = document.createElement("img")
+                img.setAttribute("src", "https://via.placeholder.com/120")
+                img.setAttribute("style", "border-radius: 60px;")
+                let h4 = document.createElement("h4")
+                h4.textContent = appointments[i].name
+                let p1 = document.createElement("p")
+                p1.textContent = `${appointments[i].date} ${appointments[i].time}`
+                let p2 = document.createElement("p")
+                p2 = `Status : ${appointments[i].status ? "Completed" : "Pending"}`
+
+                div.append(img, h4, p1, p2)
+                appointmentsDiv.append(div)
+            }
+
+            if (count === appointments.length) {
+                let button = document.getElementById("more")
+                button.textContent = "View Less"
+            }
+
+        }
+
+        function more() {
+            count += 3
+            if (count === appointments.length) {
+                count = 3
+            }
+            createDiv()
+        }
+
+        function logout() {
+            location.href = "DoctorLogin.html"
+        }
+    </script>
+</body>
+
+</html>
